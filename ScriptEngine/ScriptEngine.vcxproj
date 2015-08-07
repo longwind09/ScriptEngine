@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0F2815BF-283F-4D95-BC12-645603FD1DAA}</ProjectGuid>
+    <RootNamespace>ScriptEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(LUA_HOME)\LUA5.2_STATIC\INCLUDE;$(LUABIND_HOME);$(BOOST_HOME);$(TINYXML_HOME);$(XPATH_HOME)\INCLUDE</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalOptions>-Zm120 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(LUA_HOME)\LUA5.2_STATIC\LIB;$(LUABIND_HOME)\LIB;$(BOOST_HOME)\STAGE\LIB;$(XPATH_HOME)\LIB</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua52.lib;luabind-d.lib;tinyxpathd.lib</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DEngine.h" />
+    <ClInclude Include="EngineConfig.h" />
+    <ClInclude Include="entity_interface.h" />
+    <ClInclude Include="Expression.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="script_manager.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="inference_engine.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TaskQueue.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="TextUtil.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="worker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DEngine.cpp" />
+    <ClCompile Include="EngineConfig.cpp" />
+    <ClCompile Include="entity_interface.cpp" />
+    <ClCompile Include="Expression.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="script_manager.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="inference_engine.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TextUtil.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1 @@
+copy stdafx.obj debug\ /y
